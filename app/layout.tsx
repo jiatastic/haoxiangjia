@@ -11,6 +11,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Haoxiang Jia",
   description: "Founding Engineer @ PodPitch. Self-taught engineer.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
