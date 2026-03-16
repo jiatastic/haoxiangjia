@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  --text-interactive: #334155;
+  --text-interactive-hover: #0f172a;
+  --accordion-bg: #e2e8f0cc;
+  --accordion-border: #cbd5e1;
+  --selection-bg: #fbcfe8cc;
+  --selection-fg: #4a044e;
+}
+
+html.dark {
+  --background: #0b1220;
+  --foreground: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-subtle: #94a3b8;
+  --text-interactive: #cbd5e1;
+  --text-interactive-hover: #ffffff;
+  --accordion-bg: #1e293bb3;
+  --accordion-border: #334155;
+  --selection-bg: #a78bfa99;
+  --selection-fg: #f8fafc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color-scheme: light;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+*::selection {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+  text-shadow: none;
+}
+
+*::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+  text-shadow: none;
+}
+
+html.dark body {
+  color-scheme: dark;
+}
+
+html.theme-switching,
+html.theme-switching * {
+  transition:
+    background-color 0.28s ease,
+    color 0.28s ease,
+    border-color 0.28s ease,
+    fill 0.28s ease,
+    stroke 0.28s ease;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-theme-transition="dark"]::view-transition-old(root) {
+  z-index: 1;
+}
+
+html[data-theme-transition="dark"]::view-transition-new(root) {
+  z-index: 2;
+}
+
+html[data-theme-transition="light"]::view-transition-old(root) {
+  z-index: 2;
+}
+
+html[data-theme-transition="light"]::view-transition-new(root) {
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-switching,
+  html.theme-switching * {
+    transition: none !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.photo-texture {
+  position: relative;
+  isolation: isolate;
+  filter: saturate(0.82) contrast(0.94) sepia(0.18);
+  box-shadow: inset 0 0 0 1px rgba(20, 20, 18, 0.16);
+}
+
+.photo-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 45%, transparent 52%, rgba(0, 0, 0, 0.28) 100%),
+    linear-gradient(145deg, rgba(255, 228, 181, 0.18), rgba(78, 56, 26, 0.1));
+  mix-blend-mode: multiply;
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+.photo-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.04) 0 1px,
+      rgba(0, 0, 0, 0.03) 1px 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0 1px,
+      rgba(0, 0, 0, 0.02) 1px 2px
+    ),
+    repeating-linear-gradient(
+      12deg,
+      transparent 0 14px,
+      rgba(40, 40, 36, 0.08) 14px 15px,
+      transparent 15px 28px
+    ),
+    linear-gradient(0deg, rgba(45, 30, 12, 0.08), rgba(255, 240, 200, 0.06));
+  opacity: 0.58;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.polaroid-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f5ef 100%);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.polaroid-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0) 45%
+  );
+  pointer-events: none;
 }
