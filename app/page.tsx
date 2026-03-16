@@ -32,7 +32,7 @@ const copy: Record<
     currentlySuffix: "& Father of two lovely doggies",
     friends: "My friends call me Henry or you can call me jiatastic",
     bio: "I'm the founding engineer @ PodPitch, where where we're building the #1 AI tool sets for the public relations industry to help everyone gain exposure through podcasts, newsletters, news outlets, and more. Joined right after graudate in 2024 and helped build the platform from groundup to a couple miliions ARR till today. We're powering the marketing groups behind Feastables, Beehiiv, Lockheed Martin, MyFitnessPal, Jack Links, Penguin Random House, and thousands of others.",
-    selfTaught: "i&apos;m self-taught. i believe anyone can learn to build things if they care enough to try.",
+    selfTaught: "I&apos;m self-taught. I believe anyone can learn to build things if they care enough to try.",
     experience: "experience",
     tools: "tools i use",
     writings: "writings",
