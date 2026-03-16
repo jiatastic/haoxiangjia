@@ -400,7 +400,7 @@ export default function Home({ locale = "en" }: HomeProps) {
             <div
               role="img"
               aria-label="Haoxiang Jia signature"
-              className="h-12 w-80 bg-contain bg-left bg-no-repeat opacity-100"
+              className="signature h-12 w-80 bg-contain bg-left bg-no-repeat opacity-100"
               style={{ backgroundImage: "url('/signature/haoxiang-signature-crop.png')" }}
             />
           </div>
