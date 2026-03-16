@@ -18,7 +18,6 @@ const copy: Record<
     currentlySuffix: string;
     friends: string;
     bio: string;
-    selfTaught: string;
     experience: string;
     tools: string;
     writings: string;
@@ -32,7 +31,6 @@ const copy: Record<
     currentlySuffix: "& Father of two lovely doggies",
     friends: "My friends call me Henry or you can call me jiatastic",
     bio: "I'm the founding engineer @ PodPitch, where where we're building the #1 AI tool sets for the public relations industry to help everyone gain exposure through podcasts, newsletters, news outlets, and more. Joined right after graudate in 2024 and helped build the platform from groundup to a couple miliions ARR till today. We're powering the marketing groups behind Feastables, Beehiiv, Lockheed Martin, MyFitnessPal, Jack Links, Penguin Random House, and thousands of others.",
-    selfTaught: "I&apos;m self-taught. I believe anyone can learn to build things if they care enough to try.",
     experience: "experience",
     tools: "tools i use",
     writings: "writings",
@@ -45,7 +43,6 @@ const copy: Record<
     currentlySuffix: "打造产品，也是两只可爱狗狗的爸爸",
     friends: "朋友们叫我 Henry，你也可以叫我 jiatastic。",
     bio: "我是 PodPitch 的 founding engineer。我们正在打造面向公关行业的 AI 工具组合，帮助更多人通过播客、新闻通讯、媒体报道等方式获得曝光。我在 2024 年毕业后不久加入团队，参与从零到一搭建整个平台，并把业务一路做到今天数百万 ARR。我们正在为 Feastables、Beehiiv、Lockheed Martin、MyFitnessPal、Jack Links、Penguin Random House 以及数千家团队背后的市场部门提供支持。",
-    selfTaught: "我是自学编程的。我相信只要足够在乎并愿意尝试，任何人都可以学会把想法做成产品。",
     experience: "经历",
     tools: "常用工具",
     writings: "文章",
@@ -58,7 +55,6 @@ const copy: Record<
     currentlySuffix: "でプロダクトを作っています。二匹の愛犬の父でもあります。",
     friends: "友達には Henry と呼ばれます。jiatastic と呼んでくれても大丈夫です。",
     bio: "私は PodPitch の founding engineer です。私たちはPR業界向けのAIツール群を作り、ポッドキャスト、ニュースレター、メディア露出などを通じて、より多くの人が認知を獲得できるようにしています。私は 2024 年に卒業してすぐに参画し、プラットフォームの立ち上げから成長までを担い、現在は ARR 数百万規模まで拡大してきました。Feastables、Beehiiv、Lockheed Martin、MyFitnessPal、Jack Links、Penguin Random House、そして数千のチームのマーケティング部門を支えています。",
-    selfTaught: "私は独学で学んできました。本気で向き合って挑戦すれば、誰でも何かを作れるようになると信じています。",
     experience: "経歴",
     tools: "ツール",
     writings: "記事",
@@ -245,8 +241,6 @@ export default function Home({ locale = "en" }: HomeProps) {
         <p className="mb-5 text-[color:var(--text-muted)]">{t.friends}</p>
 
         <p className="mb-4 text-[color:var(--text-muted)]">{t.bio}</p>
-
-        <p className="mb-6 text-[color:var(--text-muted)]">{t.selfTaught}</p>
 
         <div className="mb-2 rounded-lg bg-[color:var(--accordion-bg)] p-2.5">
           <button
