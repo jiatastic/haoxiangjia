@@ -401,7 +401,6 @@ export default function Home({ locale = "en" }: HomeProps) {
               role="img"
               aria-label="Haoxiang Jia signature"
               className="signature h-12 w-80 bg-contain bg-left bg-no-repeat opacity-100"
-              style={{ backgroundImage: "url('/signature/haoxiang-signature-crop.png')" }}
             />
           </div>
           <div className="overflow-visible py-6">
