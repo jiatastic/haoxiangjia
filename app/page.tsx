@@ -3,7 +3,70 @@
 import Link from "next/link";
 import { type CSSProperties, useState } from "react";
 
-export default function Home() {
+type Locale = "en" | "zh" | "ja";
+
+type HomeProps = {
+  locale?: Locale;
+};
+
+const copy: Record<
+  Locale,
+  {
+    name: string;
+    based: string;
+    currentlyPrefix: string;
+    currentlySuffix: string;
+    friends: string;
+    bio: string;
+    selfTaught: string;
+    experience: string;
+    tools: string;
+    writings: string;
+    articleTitle: string;
+  }
+> = {
+  en: {
+    name: "Haoxiang Jia",
+    based: "based in NYC / Beijing",
+    currentlyPrefix: "currently building",
+    currentlySuffix: "& Father of two lovely doggies",
+    friends: "My friends call me Henry or you can call me jiatastic",
+    bio: "I'm the founding engineer @ PodPitch, where where we're building the #1 AI tool sets for the public relations industry to help everyone gain exposure through podcasts, newsletters, news outlets, and more. Joined right after graudate in 2024 and helped build the platform from groundup to a couple miliions ARR till today. We're powering the marketing groups behind Feastables, Beehiiv, Lockheed Martin, MyFitnessPal, Jack Links, Penguin Random House, and thousands of others.",
+    selfTaught: "i&apos;m self-taught. i believe anyone can learn to build things if they care enough to try.",
+    experience: "experience",
+    tools: "tools i use",
+    writings: "writings",
+    articleTitle: "the future I believe",
+  },
+  zh: {
+    name: "贾皓翔",
+    based: "常驻 纽约 / 北京",
+    currentlyPrefix: "目前在",
+    currentlySuffix: "打造产品，也是两只可爱狗狗的爸爸",
+    friends: "朋友们叫我 Henry，你也可以叫我 jiatastic。",
+    bio: "我是 PodPitch 的 founding engineer。我们正在打造面向公关行业的 AI 工具组合，帮助更多人通过播客、新闻通讯、媒体报道等方式获得曝光。我在 2024 年毕业后不久加入团队，参与从零到一搭建整个平台，并把业务一路做到今天数百万 ARR。我们正在为 Feastables、Beehiiv、Lockheed Martin、MyFitnessPal、Jack Links、Penguin Random House 以及数千家团队背后的市场部门提供支持。",
+    selfTaught: "我是自学编程的。我相信只要足够在乎并愿意尝试，任何人都可以学会把想法做成产品。",
+    experience: "经历",
+    tools: "常用工具",
+    writings: "文章",
+    articleTitle: "the future I believe",
+  },
+  ja: {
+    name: "贾皓翔",
+    based: "拠点: ニューヨーク / 北京",
+    currentlyPrefix: "現在は",
+    currentlySuffix: "でプロダクトを作っています。二匹の愛犬の父でもあります。",
+    friends: "友達には Henry と呼ばれます。jiatastic と呼んでくれても大丈夫です。",
+    bio: "私は PodPitch の founding engineer です。私たちはPR業界向けのAIツール群を作り、ポッドキャスト、ニュースレター、メディア露出などを通じて、より多くの人が認知を獲得できるようにしています。私は 2024 年に卒業してすぐに参画し、プラットフォームの立ち上げから成長までを担い、現在は ARR 数百万規模まで拡大してきました。Feastables、Beehiiv、Lockheed Martin、MyFitnessPal、Jack Links、Penguin Random House、そして数千のチームのマーケティング部門を支えています。",
+    selfTaught: "私は独学で学んできました。本気で向き合って挑戦すれば、誰でも何かを作れるようになると信じています。",
+    experience: "経歴",
+    tools: "ツール",
+    writings: "記事",
+    articleTitle: "the future I believe",
+  },
+};
+
+export default function Home({ locale = "en" }: HomeProps) {
   const [pastOpen, setPastOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [writingsOpen, setWritingsOpen] = useState(false);
@@ -77,10 +140,28 @@ export default function Home() {
     });
   };
 
+  const t = copy[locale];
+  const localeHref = (target: Locale) => (target === "en" ? "/" : `/${target}`);
+  const localeClass = (target: Locale) =>
+    target === locale
+      ? "font-semibold"
+      : "hover:text-[color:var(--text-interactive-hover)] transition-colors";
+
   return (
     <main className="px-6 py-20 text-sm leading-relaxed text-[color:var(--foreground)]">
       <section className="mx-auto max-w-lg">
-        <div className="mb-4 flex justify-end">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-3 text-xs text-[color:var(--text-subtle)]">
+            <Link href={localeHref("en")} className={localeClass("en")}>
+              EN
+            </Link>
+            <Link href={localeHref("zh")} className={localeClass("zh")}>
+              中文
+            </Link>
+            <Link href={localeHref("ja")} className={localeClass("ja")}>
+              日本語
+            </Link>
+          </div>
           <button
             id="theme-toggle"
             onClick={toggleTheme}
@@ -103,8 +184,8 @@ export default function Home() {
             </svg>
           </button>
         </div>
-        <h1 className="text-base font-semibold mb-1">Haoxiang Jia</h1>
-        <p className="mb-2 text-xs text-[color:var(--text-subtle)]">based in NYC / Beijing</p>
+        <h1 className="text-base font-semibold mb-1">{t.name}</h1>
+        <p className="mb-2 text-xs text-[color:var(--text-subtle)]">{t.based}</p>
         <div className="mb-4 flex items-center gap-4 text-[color:var(--text-subtle)]">
           <a
             href="https://x.com/jiatastic520"
@@ -150,7 +231,7 @@ export default function Home() {
           </a>
         </div>
         <p className="mb-2 text-[color:var(--text-muted)]">
-          currently building{" "}
+          {t.currentlyPrefix}{" "}
           <a
             href="https://podpitch.com"
             target="_blank"
@@ -159,35 +240,20 @@ export default function Home() {
           >
             PodPitch
           </a>{" "}
-          & Father of two lovely doggies
+          {t.currentlySuffix}
         </p>
-        <p className="mb-5 text-[color:var(--text-muted)]">
-          My friends call me Henry or you can call me jiatastic
-        </p>
+        <p className="mb-5 text-[color:var(--text-muted)]">{t.friends}</p>
 
-        <p className="mb-4 text-[color:var(--text-muted)]">
-          I&apos;m the founding engineer @ PodPitch, where where we&apos;re
-          building the #1 AI tool sets for the public relations industry to help
-          everyone gain exposure through podcasts, newsletters, news outlets,
-          and more. Joined right after graudate in 2024 and helped build the
-          platform from groundup to a couple miliions ARR till today.
-          We&apos;re
-          powering the marketing groups behind Feastables, Beehiiv, Lockheed
-          Martin, MyFitnessPal, Jack Links, Penguin Random House, and thousands
-          of others.
-        </p>
+        <p className="mb-4 text-[color:var(--text-muted)]">{t.bio}</p>
 
-        <p className="mb-6 text-[color:var(--text-muted)]">
-          i&apos;m self-taught. i believe anyone can learn to build things if they
-          care enough to try.
-        </p>
+        <p className="mb-6 text-[color:var(--text-muted)]">{t.selfTaught}</p>
 
         <div className="mb-2 rounded-lg bg-[color:var(--accordion-bg)] p-2.5">
           <button
             onClick={() => setPastOpen((o) => !o)}
             className="cursor-pointer select-none text-[color:var(--text-subtle)] hover:text-[color:var(--text-interactive-hover)] transition-colors"
           >
-            experience {pastOpen ? "▾" : "▸"}
+            {t.experience} {pastOpen ? "▾" : "▸"}
           </button>
           {pastOpen && (
             <ul className="mt-2 space-y-1 pl-2 text-[color:var(--text-muted)]">
@@ -212,7 +278,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="underline underline-offset-2 hover:text-[color:var(--text-interactive-hover)] transition-colors"
                 >
-                  fordham DesignLAB
+                  fordham university designLAB
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -241,7 +307,7 @@ export default function Home() {
             onClick={() => setToolsOpen((o) => !o)}
             className="cursor-pointer select-none text-[color:var(--text-subtle)] hover:text-[color:var(--text-interactive-hover)] transition-colors"
           >
-            tools i use {toolsOpen ? "▾" : "▸"}
+            {t.tools} {toolsOpen ? "▾" : "▸"}
           </button>
           {toolsOpen && (
             <ul className="mt-2 space-y-1 pl-2 text-[color:var(--text-muted)]">
@@ -318,7 +384,7 @@ export default function Home() {
             onClick={() => setWritingsOpen((o) => !o)}
             className="cursor-pointer select-none text-[color:var(--text-subtle)] hover:text-[color:var(--text-interactive-hover)] transition-colors"
           >
-            writings {writingsOpen ? "▾" : "▸"}
+            {t.writings} {writingsOpen ? "▾" : "▸"}
           </button>
           {writingsOpen && (
             <ul className="mt-2 space-y-1 pl-2 text-[color:var(--text-muted)]">
@@ -328,11 +394,8 @@ export default function Home() {
                   href="/writings/the-future-i-believe"
                   className="underline underline-offset-2 hover:text-[color:var(--text-interactive-hover)] transition-colors"
                 >
-                  the future I believe
+                  {t.articleTitle}
                 </Link>
-              </li>
-              <li className="text-xs text-[color:var(--text-subtle)]">
-                I believe technology can change the world, cypto, tesla, and AI.
               </li>
             </ul>
           )}
