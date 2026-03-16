@@ -30,7 +30,7 @@ const copy: Record<
     currentlyPrefix: "currently building",
     currentlySuffix: "& Father of two lovely doggies",
     friends: "My friends call me Henry or you can call me jiatastic",
-    bio: "I'm the founding engineer @ PodPitch, where where we're building the #1 AI tool sets for the public relations industry to help everyone gain exposure through podcasts, newsletters, news outlets, and more. Joined right after graudate in 2024 and helped build the platform from groundup to a couple miliions ARR till today. We're powering the marketing groups behind Feastables, Beehiiv, Lockheed Martin, MyFitnessPal, Jack Links, Penguin Random House, and thousands of others.",
+    bio: "I'm the founding engineer @ PodPitch, where we're building the #1 AI toolset for the public relations industry to help everyone gain exposure through podcasts, newsletters, news outlets, and more. I joined right after graduating in 2024 and helped build the platform from the ground up to a couple million ARR today. We're powering the marketing teams behind Feastables, Beehiiv, Lockheed Martin, MyFitnessPal, Jack Link's, Penguin Random House, and thousands of others.",
     experience: "experience",
     tools: "tools i use",
     writings: "writings",
