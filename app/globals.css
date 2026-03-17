@@ -161,15 +161,6 @@ details > summary::-webkit-details-marker {
     0 -1px 0 rgba(0, 0, 0, 0.03) inset;
 }
 
-.signature {
-  background-image: url("/signature/haoxiang-signature-crop.png");
-}
-
-html.dark .signature {
-  background-image: url("/signature/haoxiang-signature-dark-crop.png");
-  filter: none;
-}
-
 .polaroid-card::before {
   content: "";
   position: absolute;

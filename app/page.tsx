@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { type CSSProperties, useState } from "react";
 
@@ -397,10 +398,21 @@ export default function Home({ locale = "en" }: HomeProps) {
 
         <section className="mb-10 mt-10 overflow-visible">
           <div className="mb-3 pl-2">
-            <div
-              role="img"
-              aria-label="Haoxiang Jia signature"
-              className="signature h-12 w-80 bg-contain bg-left bg-no-repeat opacity-100"
+            <Image
+              src="/signature/haoxiang-signature-crop.png"
+              alt="Haoxiang Jia signature"
+              width={860}
+              height={330}
+              priority
+              className="block h-auto w-80 max-w-full dark:hidden"
+            />
+            <Image
+              src="/signature/haoxiang-signature.png"
+              alt="Haoxiang Jia signature"
+              width={1536}
+              height={1024}
+              priority
+              className="hidden h-auto w-[22rem] max-w-full dark:block sm:w-[24rem]"
             />
           </div>
           <div className="overflow-visible py-6">
