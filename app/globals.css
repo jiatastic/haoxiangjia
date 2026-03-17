@@ -166,7 +166,7 @@ details > summary::-webkit-details-marker {
 }
 
 html.dark .signature {
-  background-image: url("/signature/haoxiang-signature.png");
+  background-image: url("/signature/haoxiang-signature-dark-crop.png");
   filter: none;
 }
 
