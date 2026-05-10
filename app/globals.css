@@ -2,11 +2,11 @@
 
 :root {
   --background: #f5f1e8;
-  --foreground: #1a1612;
-  --text-muted: #5a5249;
-  --text-subtle: #7a7165;
-  --text-interactive: #3d352c;
-  --text-interactive-hover: #1a1612;
+  --foreground: #100c08;
+  --text-muted: #1f1a14;
+  --text-subtle: #6a5f50;
+  --text-interactive: #1f1a14;
+  --text-interactive-hover: #100c08;
   --accordion-bg: #e8e1d2cc;
   --accordion-border: #d4c9b3;
   --selection-bg: #fbcfe8cc;
