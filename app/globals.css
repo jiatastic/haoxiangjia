@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f3ef;
+  --background: #faf9f6;
   --foreground: #100c08;
   --text-muted: #1f1a14;
   --text-subtle: #6b6660;
   --text-interactive: #1f1a14;
   --text-interactive-hover: #100c08;
-  --accordion-bg: #e7e5dfcc;
-  --accordion-border: #d4d1c8;
+  --accordion-bg: #ecebe5cc;
+  --accordion-border: #dcdad2;
   --selection-bg: #fbcfe8cc;
   --selection-fg: #4a044e;
 }
