@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --text-muted: #475569;
-  --text-subtle: #64748b;
-  --text-interactive: #334155;
-  --text-interactive-hover: #0f172a;
-  --accordion-bg: #e2e8f0cc;
-  --accordion-border: #cbd5e1;
+  --background: #f5f1e8;
+  --foreground: #1a1612;
+  --text-muted: #5a5249;
+  --text-subtle: #7a7165;
+  --text-interactive: #3d352c;
+  --text-interactive-hover: #1a1612;
+  --accordion-bg: #e8e1d2cc;
+  --accordion-border: #d4c9b3;
   --selection-bg: #fbcfe8cc;
   --selection-fg: #4a044e;
 }
