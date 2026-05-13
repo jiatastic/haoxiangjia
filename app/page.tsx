@@ -20,8 +20,7 @@ const copy: Record<
     bio: string;
     experience: string;
     tools: string;
-    writings: string;
-    articleTitle: string;
+    talks: string;
   }
 > = {
   en: {
@@ -33,8 +32,7 @@ const copy: Record<
     bio: "I'm the founding engineer @ PodPitch, where we're building the #1 AI toolset for the public relations industry to help everyone gain exposure through podcasts, newsletters, news outlets, and more. I joined right after graduating in 2024 and helped build the platform from the ground up to a couple million ARR today. We're powering the marketing teams behind Feastables, Beehiiv, Lockheed Martin, MyFitnessPal, Jack Link's, Penguin Random House, and thousands of others.",
     experience: "experience",
     tools: "tools i use",
-    writings: "writings",
-    articleTitle: "the future I believe",
+    talks: "talks",
   },
   zh: {
     name: "贾皓翔",
@@ -45,8 +43,7 @@ const copy: Record<
     bio: "我是 PodPitch 的 founding engineer。我们正在打造面向公关行业的 AI 工具组合，帮助更多人通过播客、新闻通讯、媒体报道等方式获得曝光。我在 2024 年毕业后不久加入团队，参与从零到一搭建整个平台，并把业务一路做到今天数百万 ARR。我们正在为 Feastables、Beehiiv、Lockheed Martin、MyFitnessPal、Jack Links、Penguin Random House 以及数千家团队背后的市场部门提供支持。",
     experience: "经历",
     tools: "常用工具",
-    writings: "文章",
-    articleTitle: "the future I believe",
+    talks: "访谈",
   },
   ja: {
     name: "贾皓翔",
@@ -57,15 +54,13 @@ const copy: Record<
     bio: "私は PodPitch の founding engineer です。私たちはPR業界向けのAIツール群を作り、ポッドキャスト、ニュースレター、メディア露出などを通じて、より多くの人が認知を獲得できるようにしています。私は 2024 年に卒業してすぐに参画し、プラットフォームの立ち上げから成長までを担い、現在は ARR 数百万規模まで拡大してきました。Feastables、Beehiiv、Lockheed Martin、MyFitnessPal、Jack Links、Penguin Random House、そして数千のチームのマーケティング部門を支えています。",
     experience: "経歴",
     tools: "ツール",
-    writings: "記事",
-    articleTitle: "the future I believe",
+    talks: "出演",
   },
 };
 
 export default function Home({ locale = "en" }: HomeProps) {
   const [pastOpen, setPastOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
-  const [writingsOpen, setWritingsOpen] = useState(false);
   const photoCards = [
     { src: "/doggies/justin-saiban-1.jpeg", tilt: -11 },
     { src: "/doggies/justin-saiban-2.jpeg", tilt: -6 },
@@ -369,31 +364,25 @@ export default function Home({ locale = "en" }: HomeProps) {
                 />
                 — raycast
               </li>
-            </ul>
-          )}
-        </div>
-
-        <div className="mb-3 rounded-lg bg-[color:var(--accordion-bg)] p-2.5">
-          <button
-            onClick={() => setWritingsOpen((o) => !o)}
-            className="cursor-pointer select-none text-[color:var(--text-subtle)] hover:text-[color:var(--text-interactive-hover)] transition-colors"
-          >
-            {t.writings} {writingsOpen ? "▾" : "▸"}
-          </button>
-          {writingsOpen && (
-            <ul className="mt-2 space-y-1 pl-2 text-[color:var(--text-muted)]">
-              <li>
-                —{" "}
-                <Link
-                  href="/writings/the-future-i-believe"
-                  className="underline underline-offset-2 hover:text-[color:var(--text-interactive-hover)] transition-colors"
-                >
-                  {t.articleTitle}
-                </Link>
+              <li className="flex items-center gap-2">
+                <span
+                  aria-hidden="true"
+                  className="h-4 w-4 shrink-0 rounded-sm bg-contain bg-center bg-no-repeat"
+                  style={{ backgroundImage: "url('https://pi.dev/favicon.svg')" }}
+                />
+                — pi agents
               </li>
             </ul>
           )}
         </div>
+
+        <Link
+          href="/talks"
+          className="mb-3 flex items-center justify-between rounded-lg bg-[color:var(--accordion-bg)] p-2.5 text-[color:var(--text-subtle)] hover:text-[color:var(--text-interactive-hover)] transition-colors"
+        >
+          <span>{t.talks}</span>
+          <span aria-hidden="true">→</span>
+        </Link>
 
         <section className="mb-10 mt-10 overflow-visible">
           <div className="mb-3 pl-2">
